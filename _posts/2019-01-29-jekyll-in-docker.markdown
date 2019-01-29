@@ -1,47 +1,46 @@
 ---
 layout: post
-title:  "Simple rest mock server as a docker container"
-date:   2019-01-29 10:00:00 +0200
-categories: docker mock testing
+title:  "Jekyll as a docker container"
+date:   2019-01-29 14:00:00 +0200
+categories: docker jekyll
 ---
-I am currently working on a task where I need to test a fairly simple system with a lot of exernal dependencies. I am a big fun of Docker because it makes it easy to set up and tear down services and aplications.
-For the purpose of my task I choose to use [JSON Server](https://github.com/typicode/json-server) that provides REST API mocking based on plain JSON.
+I am a big fun of Docker and I hate installing software on my laptop. I was an early adopter of virtual machines and I have always installed all my development tools on a virtual machine. I really liked the idea of Jekyll and it kind of reminds me the old days, when we used to build web sites using [FrontPage](https://en.wikipedia.org/wiki/Microsoft_FrontPage).
 
- 
-Build the docker images using the following Dockerfile
+Jekyll required [Ruby](https://jekyllrb.com/docs/installation/windows/#installing-jekyll) and that was a showstopper for using it. Docker to the rescue again. In the [following github project](https://github.com/envygeeks/jekyll-docker), you can find a containerized version of jekyll where all of these dependencies are available in the container
 
-{% highlight raw %}
-ROM node:8.6-slim
-
-RUN npm install -g json-server
-
-WORKDIR /data
-VOLUME /data
-
-EXPOSE 80
-
-ENTRYPOINT ["json-server", "/data/data.json", "--port", "80", "--host", "0.0.0.0"]
-{% endhighlight %}
-
-
-Create the data.json file and fill it with data.
+In order to get started, execute the following command:
 
 {% highlight raw %}
-{
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
-}
+  mkdir -p ~/Projects/blog ; cd ~/Projects/blog
+  docker run --rm --volume="$PWD:/srv/jekyll" -it jekyll/jekyll:3.5 jekyll new .
 {% endhighlight %}
 
-
-Run the container by executing
+If everything went smoothly then you a new site was created in the current folder by the container. You should be able to see a bunch of files and directories in the blog directory.
 
 {% highlight raw %}
-docker run -d -p 80:80 -v /data.json:/data/data.json mockserver:1.0.0
+.gitignore
+404.html
+_config.yml
+_posts
+_posts/2018-04-01-welcome-to-jekyll.markdown
+about.md
+Gemfile
+Gemfile.lock
+index.md
 {% endhighlight %}
+
+In order to build it, execute the following command:
+
+{% highlight raw %}
+docker run --rm --volume="$PWD:/srv/jekyll" -it jekyll/jekyll:3.5 jekyll build
+{% endhighlight %}
+
+A new directory was created, "_site" containing your actual website (html based on the markdown posts). 
+
+You can run it locally by executing:
+
+{% highlight raw %}
+docker run --name newblog --volume="$PWD:/srv/jekyll" -p 3000:4000 -it jekyll/jekyll:3.5 jekyll serve --watch --drafts
+{% endhighlight %}
+
 
