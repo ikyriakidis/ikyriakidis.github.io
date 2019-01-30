@@ -34,3 +34,6 @@ exclude:
   - Rakefile
   - Gemfile
   - Gemfile.lock
+
+# Google Analytics
+google_analytics: UA-133439703-1
