@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "Synology"
+date:   2019-02-11 09:00:00 +0200
+categories: synology plex gmvault docker portainer
+tags: synology docker plex gmvault docker portainer
+---
+I love my Synology NAS for so many different reasons. I also love my photos, documents, emails etc as I see them as part of my own history and my heritage. With so many different devices at home, Macbooks, Winbooks, mobile phones and online services its important to have a good strategy for backups.
+
+I have a Synology DS916+ (the equivalent is this). It's a 4 bay intel-based NAS. I have put three 4TB western digital disks in it. In the few years since I've had the Synology I've never has a drive fail and i run regularly consistency checks to verify that everything is ok (Synology is emailing with the results).
+
+I run Docker on this Synology, and gradually I have migrating all the services and applications to different containers. Currently i only run Plex for all my family photos, family videos, and DVD backups, Jenkins for my builds and [Portainer](https://portainer.io) to manage the running containers. 
+
+I utilize my Synology for my time machine backups and I recently start thinking about using [Gmvault](http://gmvault.org) for my email backups. I heavily using gmail as my main email (sorry Microsoft) as I was an early adopter and I have a lot of emails that I want to keep. As I was walking to the office one morning, I accidentally manage to delete all my emails. It took me a while to understand what has happened, however I was able to recover everything (apparently I am not the only one doing this, so gmail has a [process](https://support.google.com/accounts/answer/6236295?hl=en) for restoring everything
+
+Since I like containerization of applications, and I also do not like to mess around my NAS operating system, I decided to run gmvault in a docker containeras well.
+
