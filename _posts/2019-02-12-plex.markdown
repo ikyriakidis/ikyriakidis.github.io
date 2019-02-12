@@ -1,0 +1,42 @@
+---
+layout: post
+title:  "Plex"
+date:   2019-02-12 09:00:00 +0200
+categories: synology plex
+tags: synology plex
+---
+
+##What's Plex and Why?
+I am a big fan of Plex. Plex is a media server you run on a computer (or compatible NAS device, like Synology, Netgear, Drobo) combined with both a great HTML5 web app and some awesome native clients and lets you stream your media anywhere, on any device. 
+
+I've blogged about my [Synology 916+](https://blog.irakliskyriakidis.eu/synology/plex/gmvault/docker/portainer/2019/02/11/synology.html) before and how I am backing up my gmail account and run my code builds. One major thing that I am using my Synology is for storing my media files, and Plex is what I am using for streaming them to my devices, TV, laptops, phones etc.
+
+Plex is not just a server, its a whole ecosystem that is extremely well polished and easy to setup, and If you spend around 110€ you can get their [PlexPass](https://www.plex.tv/plex-pass/) feature that unlocks some more goodies. I'm totally happy with the free plan, so I have skipped PlexPass.
+
+One of the killer features of Plex is that it will transcode your videos depending on your device and network. That means that Plex will use the power of your server at home to dynamically squish videos so that they still play smoothly on your smartphone over 4G or your tablet over hotel Wi-Fi.
+
+Plex will also get art, descriptions, subtitles, and generate thumbnails for your media, and it may sound that its not important, however trust me, it feels good when you browser though your content.
+
+You can install Plex server on all the major operating systems and it also offer support for major NAS devices like Synology (For Synology systems, I strongly recommend a faster Intel machine, not the little ARM ones.) and Qnap. The best thing is that you can also run Plex as docker container, and this is my preferable way.
+
+##Plex Clients
+There are Plex clients for iOS, Android, Nvidia Shield, Playstation, Xbox, Roku, however if you do not want to install any client, you can always use the web ui, It's magical.
+Here's an example screenshot of the Plex web ui
+
+One major feature that PlexPass offers is PlexSync that squishes content on the server then transfers the custom-transcoded result to your device for offline viewing. Super useful for airplanes and offline viewing.
+
+##Accessing Media Remotely with Plex
+Plex really shines when you can access all your media from a hotel on your tablet. Forward a port, publish your server with your Plex username and you're set.
+Once you've logged into the MyPlex service with your username, it will keep track of your servers and devices and let you access them when you're not on your home network (not on the same subnet.)
+
+##Data analytics
+As data tends to be the gold of our era, PLex is also sending playback data to back to Plex, however you can disable the feature online under privacy [preferences](https://www.plex.tv/about/privacy-legal/privacy-preferences/#opd)
+
+##Alternatives
+* [Emby](https://emby.media) is a promisisng alternative solution, that offers the same client-server functionality and some more features like Live TV and cloud backups, however installing the client app on my Sasmung TV was a challenge, since the official emby app is only offered in the US Samsung store and my TV was setup for the Swedish one. Changing stores required some googling and access to hidden menues etc. Not as smooth as Plex.
+
+* [Kodi](https://kodi.tv/) formerly known as XBMC is an award-winning free and open source cross-platform software media player and entertainment hub for digital media for HTPCs (Home theater PCs). Although Kodi may seem to offer the same functionality as Plex, Kodi is just a media player and cannot transcode or stream online your content.
+
+##Conclusion
+I really believe that [Plex](https://www.plex.tv/) is a really nice piece of software and I suggest that Plex could become a part of your media server solution.
+
