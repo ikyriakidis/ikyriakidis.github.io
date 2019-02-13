@@ -19,11 +19,11 @@ From the main menu, access docker, navigate to the registry tab, search for "ple
 
 This step is equivalent to cli “docker pull linuxserver/plex:latest”.
 
-![Docker registry search screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerRegistry.PNG)
+![Docker registry search screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerRegistry.png)
 
 Wait a couple of seconds for the download to complete and then navigate to the Image tab. Find the plex image, select it and click Launch. You can check the [documentation](https://hub.docker.com/r/linuxserver/plex/) prior your setup.
 
-![Launch plex image screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerLaunch.PNG)
+![Launch plex image screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerLaunch.png)
 
 ## Configure and Create Docker container from image
 In the next steps, you will configure ports, volumes etc.
@@ -38,18 +38,18 @@ I always keep configuration outside containers. By doing that makes container up
 
 Click on "Add Folder" button and select the folder and select the shared folder you have previously created. On the mount path enter "/config".
 
-![Docker folder screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerFolder.PNG)
+![Docker folder screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerFolder.png)
 
 ### Step 2.2 - Mounting media folders
 
 Now click again the "Add Folder" button and add your media folder. Since Plex can also delete and update your media files, I’ve chosen to allow read/writes on the media folders.
 
-![Docker folder screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerDirectories.PNG)
+![Docker folder screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerDirectories.png)
 
 ### Step 3 - Mapping ports
 Map the ports as you want, especially if you have other containers running on the same port.
 
-![Docker ports screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerPorts.PNG)
+![Docker ports screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerPorts.png)
 
 ### Step 4 - Specifying additonal environment settings
 In the Environment tab, I’ve chosen to set TimeZone, Version, PUID and PGID.
@@ -68,7 +68,7 @@ $ id username
   uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
-![Docker environmnet settings screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerEnvironmentSettings.PNG)
+![Docker environmnet settings screenshot]({{site.url}}/assets/plex-installation-synology-docker/DockerEnvironmentSettings.png)
 
 ## Access Plex
 If everything is done correctly and the container has started succesfully you should be able to access it through http://YOUR_SYNOLOGY_IP:324O0 unless you have specify other ports for the webui in Step 3.
