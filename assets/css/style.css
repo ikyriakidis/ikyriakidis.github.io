@@ -95,11 +95,10 @@ img, picture, svg { max-width: 100%; height: auto; display: block; }
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; min-height: 4rem;
 }
-.nav-brand {
-  font-family: var(--font-head); font-weight: 700; font-size: 0.95rem;
-  letter-spacing: 0.02em; text-decoration: none; color: var(--text);
+.nav nav {
+  display: flex; gap: clamp(0.9rem, 2.5vw, 1.75rem);
+  margin-left: auto;   /* no brand in the bar — links sit right */
 }
-.nav nav { display: flex; gap: clamp(0.9rem, 2.5vw, 1.75rem); }
 .nav nav a {
   font-family: var(--font-head); font-size: 0.8rem; font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
@@ -109,9 +108,7 @@ img, picture, svg { max-width: 100%; height: auto; display: block; }
 
 /* home page: nav floats over the hero until scrolled */
 .home .nav { position: fixed; inset-inline: 0; }
-.home .nav:not(.is-stuck) .nav-brand,
 .home .nav:not(.is-stuck) nav a { color: rgba(255,255,255,.85); }
-.home .nav:not(.is-stuck) .nav-brand:hover,
 .home .nav:not(.is-stuck) nav a:hover { color: var(--mint); }
 
 /* ---------- hero ---------- */
@@ -147,7 +144,6 @@ img, picture, svg { max-width: 100%; height: auto; display: block; }
   letter-spacing: 0.14em; text-transform: uppercase;
   color: rgba(255,255,255,.92); margin: 0 0 0.75rem;
 }
-.hero-where { color: rgba(255,255,255,.65); font-style: italic; margin: 0; }
 .hero-cue {
   display: inline-grid; place-items: center;
   width: 3rem; height: 3rem; margin-top: 3rem;
@@ -326,20 +322,19 @@ img, picture, svg { max-width: 100%; height: auto; display: block; }
   text-decoration: none;
   border-bottom: 2px solid var(--accent); padding-bottom: 2px;
 }
-.social, .footer-links {
+.social {
   display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
   list-style: none; padding: 0; margin: 0;
 }
-.social a, .footer-links a {
+.social a {
   font-family: var(--font-head); font-size: 0.8rem; font-weight: 600;
   letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
 }
-.social a:hover, .footer-links a:hover { text-decoration: underline; }
+.social a:hover { text-decoration: underline; }
 
 .footer {
   border-top: 1px solid var(--line);
   background: var(--surface);
-  padding-block: 3rem 2.5rem;
+  padding-block: 2.25rem;
 }
-.footer-name { font-family: var(--font-head); font-weight: 700; margin: 0 0 1rem; }
-.footer-meta { color: var(--muted); font-size: 0.85rem; margin: 1.5rem 0 0; }
+.footer-meta { color: var(--muted); font-size: 0.85rem; margin: 0; }
