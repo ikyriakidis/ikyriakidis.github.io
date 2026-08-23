@@ -223,6 +223,31 @@ img, picture, svg { max-width: 100%; height: auto; display: block; }
   color: var(--muted); background: var(--bg);
 }
 
+/* experience timeline */
+.timeline { list-style: none; padding: 0; margin: 2.5rem 0 2rem; }
+.timeline li {
+  position: relative;
+  padding: 0 0 2rem 1.75rem;
+  border-left: 1px solid var(--line);
+}
+.timeline li::before {
+  content: ""; position: absolute; left: -5px; top: 0.45rem;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 0 4px var(--surface);
+}
+.timeline li:last-child { border-left-color: transparent; padding-bottom: 0; }
+.tl-when {
+  font-family: var(--font-head); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 0.3rem;
+}
+.tl-what { font-size: 1.05rem; margin: 0 0 0.5rem; }
+.tl-what span {
+  display: block; font-weight: 600; font-size: 0.92rem;
+  color: var(--accent); letter-spacing: 0;
+}
+.timeline p:not(.tl-when) { margin: 0; color: var(--muted); font-size: 0.97em; }
+
 .facts { list-style: none; padding: 0; margin: 0; max-width: var(--narrow); }
 .facts li { position: relative; padding-left: 1.6rem; margin-bottom: 0.9rem; }
 .facts li::before {
@@ -386,3 +411,94 @@ img, picture, svg { max-width: 100%; height: auto; display: block; }
   padding-block: 2.25rem;
 }
 .footer-meta { color: var(--muted); font-size: 0.85rem; margin: 0; }
+
+/* ---------- CV page ---------- */
+
+.cv-doc { padding-block: clamp(2.5rem, 6vw, 4rem) 4rem; }
+
+.cv-head { padding-bottom: 1.75rem; border-bottom: 2px solid var(--accent); margin-bottom: 2.5rem; }
+.cv-head h1 { font-size: clamp(2rem, 5vw, 2.75rem); margin: 0 0 0.35rem; }
+.cv-role {
+  font-family: var(--font-head); font-weight: 600;
+  font-size: clamp(1rem, 2.2vw, 1.15rem); color: var(--accent);
+  margin: 0 0 0.35rem;
+}
+.cv-strap { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.1rem; }
+.cv-contact {
+  display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem;
+  list-style: none; padding: 0; margin: 0;
+  font-family: var(--font-head); font-size: 0.85rem; color: var(--muted);
+}
+.cv-contact a { text-decoration: none; }
+.cv-contact a:hover { text-decoration: underline; }
+.print-hint { font-size: 0.8rem; color: var(--muted); font-style: italic; margin: 1rem 0 0; }
+
+.cv-section { margin-bottom: 2.75rem; }
+.cv-section > h2 {
+  font-size: 0.85rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 1.35rem;
+  padding-bottom: 0.5rem; border-bottom: 1px solid var(--line);
+}
+.cv-section > p { max-width: none; }
+
+.cv-job { margin-bottom: 1.9rem; }
+.cv-job:last-child { margin-bottom: 0; }
+.cv-job h3 { font-size: 1.05rem; margin: 0 0 0.2rem; }
+.cv-org {
+  font-family: var(--font-head); font-weight: 600; font-size: 0.92rem;
+  color: var(--accent); margin: 0 0 0.15rem; max-width: none;
+}
+.cv-org span { color: var(--muted); font-weight: 400; }
+.cv-dates {
+  font-family: var(--font-head); font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 0.7rem; max-width: none;
+}
+.cv-job p { max-width: none; }
+.cv-job ul { margin: 0.5rem 0 0; padding-left: 1.15rem; }
+.cv-job li { margin-bottom: 0.35rem; color: var(--muted); font-size: 0.97em; }
+
+.cv-cols { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.cv-cols h2 { margin-top: 0; }
+.cv-cols > div > h2 + ul + h2 { margin-top: 2rem; }
+.cv-list { list-style: none; padding: 0; margin: 0; color: var(--muted); font-size: 0.95em; }
+.cv-list li { margin-bottom: 0.3rem; }
+.cv-cols .tags { margin-top: 0; }
+
+/* ---------- print: the CV should come out as a clean document ---------- */
+
+@media print {
+  :root {
+    --bg: #ffffff; --surface: #ffffff; --text: #000000;
+    --muted: #333333; --line: #cccccc; --accent: #0a6e49;
+  }
+  .no-print, .nav, .footer, .skip, .print-hint { display: none !important; }
+
+  body { font-size: 10.5pt; line-height: 1.42; }
+  .wrap { max-width: none; padding-inline: 0; }
+  .cv-doc { padding-block: 0; }
+
+  .cv-head { border-bottom-width: 1.5pt; margin-bottom: 14pt; padding-bottom: 10pt; }
+  .cv-head h1 { font-size: 20pt; }
+  .cv-role { font-size: 11pt; }
+  .cv-strap, .cv-contact { font-size: 8.5pt; }
+
+  .cv-section { margin-bottom: 14pt; }
+  .cv-section > h2 { font-size: 8.5pt; margin-bottom: 8pt; }
+  .cv-job { margin-bottom: 10pt; }
+  .cv-job h3 { font-size: 10.5pt; }
+  .cv-org, .cv-dates { font-size: 8.5pt; }
+  .cv-job li { font-size: 9.5pt; margin-bottom: 1.5pt; }
+
+  /* never split a role across a page boundary */
+  .cv-job, .cv-section > h2 { break-inside: avoid; page-break-inside: avoid; }
+  .cv-section > h2 { break-after: avoid; page-break-after: avoid; }
+
+  /* spell out link targets, since a printed page cannot be clicked */
+  .cv-contact a::after { content: ""; }
+  a { color: var(--text); text-decoration: none; }
+
+  .tags li { border-color: #bbbbbb; font-size: 8pt; padding: 2pt 5pt; }
+}
+
+@page { margin: 14mm; }
