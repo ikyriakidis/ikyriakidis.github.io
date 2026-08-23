@@ -1,24 +1,47 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found · Iraklis Kyriakidis</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+<header class="nav is-stuck" id="site-nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="/">Iraklis Kyriakidis</a>
+    <nav aria-label="Main">
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-<div class="container">
-  <h1>404</h1>
+<main id="main">
+  <div class="wrap narrow article error-page">
+    <p class="eyebrow">404</p>
+    <h1>That page isn&rsquo;t here</h1>
+    <p>The link may be old, or I may have moved something.</p>
+    <p class="error-links">
+      <a class="more-link" href="/">Back to the homepage</a>
+    </p>
+  </div>
+</main>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer-meta">&copy; 2011&ndash;<span id="year">2026</span> Iraklis Kyriakidis &middot; Chania, Crete, Greece</p>
+  </div>
+</footer>
+
+<script>
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
