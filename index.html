@@ -39,8 +39,6 @@
       "image": "https://irakliskyriakidis.eu/img/og-card.png",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Chania",
-        "addressRegion": "Crete",
         "addressCountry": "GR"
       },
       "alumniOf": [
@@ -98,8 +96,8 @@
 <header class="nav" id="site-nav">
   <div class="wrap nav-inner">
     <nav aria-label="Main">
-      <a href="#work">What I do</a>
-      <a class="nav-optional" href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
       <a href="/cv/">CV</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -298,8 +296,8 @@
         Certified Scrum Master.
       </p>
       <p>
-        I spent a decade working in Stockholm before moving back to Greece, and I now live
-        in Chania, Crete. Greek is my first language, I work in English, and I speak enough
+        I spent a decade working in Stockholm before moving back to Greece, where I now
+        work remotely. Greek is my first language, I work in English, and I speak enough
         Swedish to be polite about it.
       </p>
       <ul class="tags" aria-label="Technologies">
@@ -378,6 +376,28 @@
       addEventListener('scroll', function () {
         nav.classList.toggle('is-stuck', scrollY > 40);
       }, { passive: true });
+    }
+
+    // highlight whichever section is currently under the reader
+    var links = [].slice.call(document.querySelectorAll('#site-nav nav a[href^="#"]'));
+    var byId = {};
+    links.forEach(function (link) {
+      var el = document.getElementById(link.getAttribute('href').slice(1));
+      if (el) { byId[el.id] = link; }
+    });
+
+    if (Object.keys(byId).length && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          links.forEach(function (link) { link.removeAttribute('aria-current'); });
+          byId[entry.target.id].setAttribute('aria-current', 'true');
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+      Object.keys(byId).forEach(function (id) {
+        observer.observe(document.getElementById(id));
+      });
     }
   })();
 </script>

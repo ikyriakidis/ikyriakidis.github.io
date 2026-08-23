@@ -106,15 +106,26 @@ img, picture, svg { max-width: 100%; height: auto; display: block; }
 }
 .nav nav a:hover { color: var(--accent); }
 
-/* four nav items don't fit a phone; drop the two least useful */
-@media (max-width: 40rem) {
-  .nav nav a.nav-optional { display: none; }
+.nav nav a { position: relative; padding-block: 0.4rem; }
+
+/* current page / section */
+.nav nav a[aria-current] { color: var(--accent); }
+.nav nav a[aria-current]::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 2px; border-radius: 2px; background: currentColor;
+}
+
+/* all four items stay on a phone; tighten instead of hiding */
+@media (max-width: 34rem) {
+  .nav nav { gap: 0.9rem; }
+  .nav nav a { font-size: 0.7rem; letter-spacing: 0.04em; }
 }
 
 /* home page: nav floats over the hero until scrolled */
 .home .nav { position: fixed; inset-inline: 0; }
 .home .nav:not(.is-stuck) nav a { color: rgba(255,255,255,.85); }
-.home .nav:not(.is-stuck) nav a:hover { color: var(--mint); }
+.home .nav:not(.is-stuck) nav a:hover,
+.home .nav:not(.is-stuck) nav a[aria-current] { color: var(--mint); }
 
 /* ---------- hero ---------- */
 
