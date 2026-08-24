@@ -76,13 +76,13 @@
 <h2>Why Plex, Why Synology and Why Docker?</h2>
 <p>I find <a href="/blog/plex/">PLex</a> an easy to use and maintain solution for managing and viewing my media files. I am also a big fan of <a href="/blog/synology/">Synology</a> mainly because of the simplicity and ease of use. When it comes to Docker, lets say that I like abstracting and Docker makes my life easier when it comes to abstracting at the app layer that packages code and dependencies together and keeps them separete from the operating System.</p>
 <h2>Docker support is a separate install on Synology DSM</h2>
-<p>Navigate to the Package Center and install Docker. The package is provided and maintained by Synology, however make sure that your device is <a href="https://www.synology.com/en-global/dsm/packages/Docker">supported</a></p>
+<p>Navigate to the Package Center and install Docker. The package is provided and maintained by Synology, however make sure that your device is <a href="https://www.synology.com/en-global/dsm/packages/Docker" target="_blank" rel="noopener noreferrer">supported</a></p>
 <p><img alt="Docker installation screenshot" src="/assets/blog/plex-installation-synology-docker/Docker.png" /></p>
 <h2>Find and download linuxserver/plex in the Docker registry</h2>
 <p>From the main menu, access docker, navigate to the registry tab, search for "plex" and click Download.</p>
 <p>This step is equivalent to cli “docker pull linuxserver/plex:latest”.</p>
 <p><img alt="Docker registry search screenshot" src="/assets/blog/plex-installation-synology-docker/DockerRegistry.png" /></p>
-<p>Wait a couple of seconds for the download to complete and then navigate to the Image tab. Find the plex image, select it and click Launch. You can check the <a href="https://hub.docker.com/r/linuxserver/plex/">documentation</a> prior your setup.</p>
+<p>Wait a couple of seconds for the download to complete and then navigate to the Image tab. Find the plex image, select it and click Launch. You can check the <a href="https://hub.docker.com/r/linuxserver/plex/" target="_blank" rel="noopener noreferrer">documentation</a> prior your setup.</p>
 <p><img alt="Launch plex image screenshot" src="/assets/blog/plex-installation-synology-docker/DockerLaunch.png" /></p>
 <h2>Configure and Create Docker container from image</h2>
 <p>In the next steps, you will configure ports, volumes etc.</p>

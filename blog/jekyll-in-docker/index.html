@@ -73,8 +73,8 @@
   </header>
 
   <div class="prose">
-<p>I am a big fun of Docker and I hate installing software on my laptop. I was an early adopter of virtual machines and I have always installed all my development tools on a virtual machine. I really liked the idea of Jekyll and it kind of reminds me the old days, when we used to build web sites using <a href="https://en.wikipedia.org/wiki/Microsoft_FrontPage">FrontPage</a>.</p>
-<p>Jekyll required <a href="https://jekyllrb.com/docs/installation/windows/#installing-jekyll">Ruby</a> and that was a showstopper for using it. Docker to the rescue again. In the <a href="https://github.com/envygeeks/jekyll-docker">following github project</a>, you can find a containerized version of jekyll where all of these dependencies are available in the container</p>
+<p>I am a big fun of Docker and I hate installing software on my laptop. I was an early adopter of virtual machines and I have always installed all my development tools on a virtual machine. I really liked the idea of Jekyll and it kind of reminds me the old days, when we used to build web sites using <a href="https://en.wikipedia.org/wiki/Microsoft_FrontPage" target="_blank" rel="noopener noreferrer">FrontPage</a>.</p>
+<p>Jekyll required <a href="https://jekyllrb.com/docs/installation/windows/#installing-jekyll" target="_blank" rel="noopener noreferrer">Ruby</a> and that was a showstopper for using it. Docker to the rescue again. In the <a href="https://github.com/envygeeks/jekyll-docker" target="_blank" rel="noopener noreferrer">following github project</a>, you can find a containerized version of jekyll where all of these dependencies are available in the container</p>
 <p>In order to get started, execute the following command:</p>
 <pre><code>  mkdir -p ~/Projects/blog ; cd ~/Projects/blog
   docker run --rm --volume=&quot;$PWD:/srv/jekyll&quot; -it jekyll/jekyll:3.5 jekyll new .

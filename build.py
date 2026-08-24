@@ -22,6 +22,7 @@ ROOT = pathlib.Path(__file__).parent
 POSTS_DIR = ROOT / "blog" / "posts"
 BLOG_DIR = ROOT / "blog"
 SITE = "https://irakliskyriakidis.eu"
+SITE_HOST = "irakliskyriakidis.eu"
 AUTHOR = "Iraklis Kyriakidis"
 GA_ID = "G-KW6CQ3XWPH"
 
@@ -32,6 +33,22 @@ STATIC_PAGES = [("/", "1.0"), ("/cv/", "0.8"), ("/blog/", "0.7")]
 def dashes(text):
     """House style: hyphens, never en or em dashes."""
     return text.replace("—", "-").replace("–", "-")
+
+
+def external_links(html_text):
+    """Open links to other sites in a new tab.
+
+    Applied to every post automatically, so a post never has to remember the
+    attributes. Internal links keep the same tab: sending a reader away from
+    your own site to read your own site is just annoying.
+    """
+    def rewrite(match):
+        href = match.group(1)
+        if SITE_HOST in href:
+            return match.group(0)
+        return '<a href="%s" target="_blank" rel="noopener noreferrer"' % href
+
+    return re.sub(r'<a href="(https?://[^"]+)"', rewrite, html_text)
 
 
 def read_posts():
@@ -66,7 +83,7 @@ def read_posts():
             "date": date,
             "description": dashes(meta.get("description", "")),
             "tags": [t.strip() for t in meta.get("tags", "").split(",") if t.strip()],
-            "body": dashes(md.convert(dashes(body.strip()))),
+            "body": external_links(dashes(md.convert(dashes(body.strip())))),
             "url": "/blog/%s/" % path.stem,
         })
 
