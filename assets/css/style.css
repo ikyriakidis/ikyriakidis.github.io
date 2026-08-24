@@ -95,6 +95,18 @@ img, picture, svg { max-width: 100%; height: auto; display: block; }
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; min-height: 4rem;
 }
+/* monogram, doubling as the link home. An icon rather than the name in text:
+   the name competed with the hero, a mark does not. */
+.nav-brand {
+  display: inline-flex; align-items: center;
+  color: var(--accent);
+  padding: 0.35rem 0.15rem;
+  transition: opacity .15s ease;
+}
+.nav-brand:hover { opacity: 0.72; color: var(--accent); }
+.nav-brand svg { display: block; }
+.home .nav:not(.is-stuck) .nav-brand { color: var(--mint); }
+
 .nav nav {
   display: flex; gap: clamp(0.9rem, 2.5vw, 1.75rem);
   margin-left: auto;   /* no brand in the bar — links sit right */
@@ -121,8 +133,9 @@ img, picture, svg { max-width: 100%; height: auto; display: block; }
   .nav nav a { font-size: 0.68rem; letter-spacing: 0.03em; }
 }
 @media (max-width: 24rem) {
-  .nav nav { gap: 0.6rem; }
-  .nav nav a { font-size: 0.62rem; letter-spacing: 0.02em; }
+  .nav nav { gap: 0.55rem; }
+  .nav nav a { font-size: 0.6rem; letter-spacing: 0.01em; }
+  .nav-brand svg { width: 22px; height: 19px; }
 }
 
 /* home page: nav floats over the hero until scrolled */
