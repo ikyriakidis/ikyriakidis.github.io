@@ -43,8 +43,10 @@ any future change of domain.
 ## Publishing
 
 1. Copy this file to `blog/posts/<slug>.md` and write the post.
-2. Run `python build.py` from the repository root.
-3. Commit both the `.md` source and the generated HTML, then push.
+2. Run `make build` from the repository root.
+3. Check it with `make run`, which serves the site at http://localhost:4000.
+   Stop it again with `make stop`.
+4. Commit both the `.md` source and the generated HTML, then push.
 
 The site is live about a minute later. This file is ignored by the build
 because its name starts with an underscore.

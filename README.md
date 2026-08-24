@@ -15,6 +15,8 @@ Personal site and blog for Iraklis Kyriakidis. Static HTML and CSS, served by
     blog/feed.xml         generated RSS
     sitemap.xml           generated
     build.py              renders the Markdown into the HTML above
+    serve.py              start/stop the local preview server
+    Makefile              shortcuts for the two scripts above
     assets/css/style.css  the only stylesheet
     assets/blog/<slug>/   images used by posts
     img/                  hero, favicons, share card
@@ -24,14 +26,29 @@ Personal site and blog for Iraklis Kyriakidis. Static HTML and CSS, served by
 The landing page, CV and 404 are hand-written HTML and have no build step.
 Only the blog is generated.
 
-## Writing a post
+## Commands
 
-    pip install markdown        # once
+    make deps     install the one Python dependency (markdown)
+    make build    render blog/posts/*.md into static HTML
+    make run      build, then serve at http://localhost:4000
+    make stop     stop the preview server
+    make status   is the preview server running?
+    make clean    delete generated blog output (sources are untouched)
+
+`make run` starts the server in the background and writes its pid to
+`.server.pid`, so `make stop` can find it later. If that file is lost, stop
+falls back to whatever process is listening on the port, so an orphaned
+server can always be cleaned up.
+
+`make` is a thin wrapper: `build.py` and `serve.py` can be called directly
+with `python` if you prefer.
+
+## Writing a post
 
 1. Copy `blog/posts/_template.md` to `blog/posts/<slug>.md`. The filename is
    the URL: `my-post.md` publishes to `/blog/my-post/`.
 2. Write it. The template documents the front matter and house style.
-3. Run `python build.py` from the repository root.
+3. Run `make build`.
 4. Commit the `.md` and the generated HTML together, then push.
 
 `build.py` regenerates every post, the archive, the RSS feed and the sitemap
@@ -48,12 +65,6 @@ the hand-written pages need it done by hand.
 There is no shared layout for the hand-written pages, so a new one needs the
 head block, nav, footer and analytics snippet copied from an existing page.
 Add it to `STATIC_PAGES` in `build.py` so it lands in the sitemap.
-
-## Local preview
-
-    python -m http.server 4000 --directory .
-
-Then open http://localhost:4000.
 
 ## History
 

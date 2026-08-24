@@ -7,6 +7,13 @@
     <language>en</language>
     <atom:link href="https://irakliskyriakidis.eu/blog/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Why I still blog in 2026</title>
+      <link>https://irakliskyriakidis.eu/blog/why-i-still-blog-in-2026/</link>
+      <guid isPermaLink="true">https://irakliskyriakidis.eu/blog/why-i-still-blog-in-2026/</guid>
+      <pubDate>Mon, 24 Aug 2026 09:00:00 +0000</pubDate>
+      <description>Blogging is supposed to be dead, and I still think it matters. On owning your own words, running things at home, and the stories in the closet.</description>
+    </item>
+    <item>
       <title>Plex installation on synology using docker</title>
       <link>https://irakliskyriakidis.eu/blog/plex-installation-synology-docker/</link>
       <guid isPermaLink="true">https://irakliskyriakidis.eu/blog/plex-installation-synology-docker/</guid>
