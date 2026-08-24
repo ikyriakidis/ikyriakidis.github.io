@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple rest mock server as a docker container | Iraklis Kyriakidis</title>
+  <meta name="description" content="Standing up a throwaway REST mock server with JSON Server and Docker, for testing against external dependencies.">
+  <link rel="canonical" href="https://irakliskyriakidis.eu/blog/simple-rest-mock-server-docker/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Simple rest mock server as a docker container">
+  <meta property="og:description" content="Standing up a throwaway REST mock server with JSON Server and Docker, for testing against external dependencies.">
+  <meta property="og:url" content="https://irakliskyriakidis.eu/blog/simple-rest-mock-server-docker/">
+  <meta property="og:image" content="https://irakliskyriakidis.eu/img/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/img/favicon-180.png">
+
+  <link rel="alternate" type="application/rss+xml" title="Iraklis Kyriakidis" href="/blog/feed.xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Simple rest mock server as a docker container",
+    "description": "Standing up a throwaway REST mock server with JSON Server and Docker, for testing against external dependencies.",
+    "datePublished": "2019-01-29",
+    "author": { "@type": "Person", "name": "Iraklis Kyriakidis", "url": "https://irakliskyriakidis.eu/" },
+    "mainEntityOfPage": "https://irakliskyriakidis.eu/blog/simple-rest-mock-server-docker/",
+    "image": "https://irakliskyriakidis.eu/img/og-card.png"
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW6CQ3XWPH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KW6CQ3XWPH');
+  </script>
+</head>
+<body class="blog-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav is-stuck" id="site-nav">
+  <div class="wrap nav-inner">
+    <nav aria-label="Main">
+      <a href="/#work">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/cv/">CV</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="wrap narrow article">
+  <header class="article-head">
+    <p class="eyebrow"><a href="/blog/">Blog</a></p>
+    <h1>Simple rest mock server as a docker container</h1>
+    <p class="article-meta"><time datetime="2019-01-29">29 January 2019</time></p>
+    <ul class="tags" aria-label="Tags"><li>docker</li><li>mock</li><li>testing</li></ul>
+  </header>
+
+  <div class="prose">
+<p>I am currently working on a task where I need to test a fairly simple system with a lot of exernal dependencies. I am a big fun of Docker because it makes it easy to set up and tear down services and aplications.
+For the purpose of my task I choose to use <a href="https://github.com/typicode/json-server">JSON Server</a> that provides REST API mocking based on plain JSON.</p>
+<p>Build the docker images using the following Dockerfile</p>
+<pre><code>ROM node:8.6-slim
+
+RUN npm install -g json-server
+
+WORKDIR /data
+VOLUME /data
+
+EXPOSE 80
+
+ENTRYPOINT [&quot;json-server&quot;, &quot;/data/data.json&quot;, &quot;--port&quot;, &quot;80&quot;, &quot;--host&quot;, &quot;0.0.0.0&quot;]
+</code></pre>
+<p>Create the data.json file and fill it with data.</p>
+<pre><code>{
+  &quot;posts&quot;: [
+    { &quot;id&quot;: 1, &quot;title&quot;: &quot;json-server&quot;, &quot;author&quot;: &quot;typicode&quot; }
+  ],
+  &quot;comments&quot;: [
+    { &quot;id&quot;: 1, &quot;body&quot;: &quot;some comment&quot;, &quot;postId&quot;: 1 }
+  ],
+  &quot;profile&quot;: { &quot;name&quot;: &quot;typicode&quot; }
+}
+</code></pre>
+<p>Run the container by executing</p>
+<pre><code>docker run -d -p 80:80 -v /data.json:/data/data.json mockserver:1.0.0
+</code></pre>
+  </div>
+
+  <nav class="article-nav" aria-label="Other posts">
+    <a class="next" href="/blog/jekyll-in-docker/"><span>Next</span>Jekyll as a docker container</a>
+  </nav>
+</article>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer-meta">&copy; 2011-<span id="year">2026</span> Iraklis Kyriakidis</p>
+  </div>
+</footer>
+
+<script>
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

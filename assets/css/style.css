@@ -115,10 +115,14 @@ img, picture, svg { max-width: 100%; height: auto; display: block; }
   height: 2px; border-radius: 2px; background: currentColor;
 }
 
-/* all four items stay on a phone; tighten instead of hiding */
-@media (max-width: 34rem) {
-  .nav nav { gap: 0.9rem; }
-  .nav nav a { font-size: 0.7rem; letter-spacing: 0.04em; }
+/* five items stay visible on a phone; tighten rather than hide any */
+@media (max-width: 40rem) {
+  .nav nav { gap: 0.8rem; }
+  .nav nav a { font-size: 0.68rem; letter-spacing: 0.03em; }
+}
+@media (max-width: 24rem) {
+  .nav nav { gap: 0.6rem; }
+  .nav nav a { font-size: 0.62rem; letter-spacing: 0.02em; }
 }
 
 /* home page: nav floats over the hero until scrolled */
@@ -426,6 +430,8 @@ img, picture, svg { max-width: 100%; height: auto; display: block; }
 /* ---------- CV page ---------- */
 
 .cv-doc { padding-block: clamp(2.5rem, 6vw, 4rem) 4rem; }
+.blog-page .article { padding-block: clamp(2rem, 5vw, 3.5rem) 4rem; }
+.blog-page .tags { margin-top: 1.25rem; }
 
 .cv-head { padding-bottom: 1.75rem; border-bottom: 2px solid var(--accent); margin-bottom: 2.5rem; }
 .cv-head h1 { font-size: clamp(2rem, 5vw, 2.75rem); margin: 0 0 0.35rem; }

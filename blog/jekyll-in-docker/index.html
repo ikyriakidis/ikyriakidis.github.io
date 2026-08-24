@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jekyll as a docker container | Iraklis Kyriakidis</title>
+  <meta name="description" content="Running Jekyll from a Docker container, so you never have to install Ruby on your laptop.">
+  <link rel="canonical" href="https://irakliskyriakidis.eu/blog/jekyll-in-docker/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Jekyll as a docker container">
+  <meta property="og:description" content="Running Jekyll from a Docker container, so you never have to install Ruby on your laptop.">
+  <meta property="og:url" content="https://irakliskyriakidis.eu/blog/jekyll-in-docker/">
+  <meta property="og:image" content="https://irakliskyriakidis.eu/img/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/img/favicon-180.png">
+
+  <link rel="alternate" type="application/rss+xml" title="Iraklis Kyriakidis" href="/blog/feed.xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Jekyll as a docker container",
+    "description": "Running Jekyll from a Docker container, so you never have to install Ruby on your laptop.",
+    "datePublished": "2019-01-29",
+    "author": { "@type": "Person", "name": "Iraklis Kyriakidis", "url": "https://irakliskyriakidis.eu/" },
+    "mainEntityOfPage": "https://irakliskyriakidis.eu/blog/jekyll-in-docker/",
+    "image": "https://irakliskyriakidis.eu/img/og-card.png"
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW6CQ3XWPH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KW6CQ3XWPH');
+  </script>
+</head>
+<body class="blog-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav is-stuck" id="site-nav">
+  <div class="wrap nav-inner">
+    <nav aria-label="Main">
+      <a href="/#work">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/cv/">CV</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="wrap narrow article">
+  <header class="article-head">
+    <p class="eyebrow"><a href="/blog/">Blog</a></p>
+    <h1>Jekyll as a docker container</h1>
+    <p class="article-meta"><time datetime="2019-01-29">29 January 2019</time></p>
+    <ul class="tags" aria-label="Tags"><li>docker</li><li>jekyll</li></ul>
+  </header>
+
+  <div class="prose">
+<p>I am a big fun of Docker and I hate installing software on my laptop. I was an early adopter of virtual machines and I have always installed all my development tools on a virtual machine. I really liked the idea of Jekyll and it kind of reminds me the old days, when we used to build web sites using <a href="https://en.wikipedia.org/wiki/Microsoft_FrontPage">FrontPage</a>.</p>
+<p>Jekyll required <a href="https://jekyllrb.com/docs/installation/windows/#installing-jekyll">Ruby</a> and that was a showstopper for using it. Docker to the rescue again. In the <a href="https://github.com/envygeeks/jekyll-docker">following github project</a>, you can find a containerized version of jekyll where all of these dependencies are available in the container</p>
+<p>In order to get started, execute the following command:</p>
+<pre><code>  mkdir -p ~/Projects/blog ; cd ~/Projects/blog
+  docker run --rm --volume=&quot;$PWD:/srv/jekyll&quot; -it jekyll/jekyll:3.5 jekyll new .
+</code></pre>
+<p>If everything went smoothly then you a new site was created in the current folder by the container. You should be able to see a bunch of files and directories in the blog directory.</p>
+<pre><code>.gitignore
+404.html
+_config.yml
+_posts
+_posts/2018-04-01-welcome-to-jekyll.markdown
+about.md
+Gemfile
+Gemfile.lock
+index.md
+</code></pre>
+<p>In order to build it, execute the following command:</p>
+<pre><code>docker run --rm --volume=&quot;$PWD:/srv/jekyll&quot; -it jekyll/jekyll:3.5 jekyll build
+</code></pre>
+<p>A new directory was created, "_site" containing your actual website (html based on the markdown posts). </p>
+<p>You can run it locally by executing:</p>
+<pre><code>docker run --name newblog --volume=&quot;$PWD:/srv/jekyll&quot; -p 3000:4000 -it jekyll/jekyll:3.5 jekyll serve --watch --drafts
+</code></pre>
+  </div>
+
+  <nav class="article-nav" aria-label="Other posts">
+    <a class="prev" href="/blog/simple-rest-mock-server-docker/"><span>Previous</span>Simple rest mock server as a docker container</a>
+    <a class="next" href="/blog/synology/"><span>Next</span>Synology</a>
+  </nav>
+</article>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer-meta">&copy; 2011-<span id="year">2026</span> Iraklis Kyriakidis</p>
+  </div>
+</footer>
+
+<script>
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plex installation on synology using docker | Iraklis Kyriakidis</title>
+  <meta name="description" content="Installing Plex on a Synology NAS with Docker, step by step: registry pull, volumes, ports and environment settings.">
+  <link rel="canonical" href="https://irakliskyriakidis.eu/blog/plex-installation-synology-docker/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Plex installation on synology using docker">
+  <meta property="og:description" content="Installing Plex on a Synology NAS with Docker, step by step: registry pull, volumes, ports and environment settings.">
+  <meta property="og:url" content="https://irakliskyriakidis.eu/blog/plex-installation-synology-docker/">
+  <meta property="og:image" content="https://irakliskyriakidis.eu/img/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/img/favicon-180.png">
+
+  <link rel="alternate" type="application/rss+xml" title="Iraklis Kyriakidis" href="/blog/feed.xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Plex installation on synology using docker",
+    "description": "Installing Plex on a Synology NAS with Docker, step by step: registry pull, volumes, ports and environment settings.",
+    "datePublished": "2019-02-13",
+    "author": { "@type": "Person", "name": "Iraklis Kyriakidis", "url": "https://irakliskyriakidis.eu/" },
+    "mainEntityOfPage": "https://irakliskyriakidis.eu/blog/plex-installation-synology-docker/",
+    "image": "https://irakliskyriakidis.eu/img/og-card.png"
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW6CQ3XWPH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KW6CQ3XWPH');
+  </script>
+</head>
+<body class="blog-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav is-stuck" id="site-nav">
+  <div class="wrap nav-inner">
+    <nav aria-label="Main">
+      <a href="/#work">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/cv/">CV</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="wrap narrow article">
+  <header class="article-head">
+    <p class="eyebrow"><a href="/blog/">Blog</a></p>
+    <h1>Plex installation on synology using docker</h1>
+    <p class="article-meta"><time datetime="2019-02-13">13 February 2019</time></p>
+    <ul class="tags" aria-label="Tags"><li>docker</li><li>plex</li><li>synology</li></ul>
+  </header>
+
+  <div class="prose">
+<h2>Why Plex, Why Synology and Why Docker?</h2>
+<p>I find <a href="/blog/plex/">PLex</a> an easy to use and maintain solution for managing and viewing my media files. I am also a big fan of <a href="/blog/synology/">Synology</a> mainly because of the simplicity and ease of use. When it comes to Docker, lets say that I like abstracting and Docker makes my life easier when it comes to abstracting at the app layer that packages code and dependencies together and keeps them separete from the operating System.</p>
+<h2>Docker support is a separate install on Synology DSM</h2>
+<p>Navigate to the Package Center and install Docker. The package is provided and maintained by Synology, however make sure that your device is <a href="https://www.synology.com/en-global/dsm/packages/Docker">supported</a></p>
+<p><img alt="Docker installation screenshot" src="/assets/blog/plex-installation-synology-docker/Docker.png" /></p>
+<h2>Find and download linuxserver/plex in the Docker registry</h2>
+<p>From the main menu, access docker, navigate to the registry tab, search for "plex" and click Download.</p>
+<p>This step is equivalent to cli “docker pull linuxserver/plex:latest”.</p>
+<p><img alt="Docker registry search screenshot" src="/assets/blog/plex-installation-synology-docker/DockerRegistry.png" /></p>
+<p>Wait a couple of seconds for the download to complete and then navigate to the Image tab. Find the plex image, select it and click Launch. You can check the <a href="https://hub.docker.com/r/linuxserver/plex/">documentation</a> prior your setup.</p>
+<p><img alt="Launch plex image screenshot" src="/assets/blog/plex-installation-synology-docker/DockerLaunch.png" /></p>
+<h2>Configure and Create Docker container from image</h2>
+<p>In the next steps, you will configure ports, volumes etc.</p>
+<h3>Step 1 - Naming</h3>
+<p>Give a name to your container and then click "Advanced settings".</p>
+<h3>Step 2 - Volumes Sharing persistent data with Docker containers</h3>
+<p>I always keep configuration outside containers. By doing that makes container upgrades, backups and configuration easier. I have created a shared folder on my Synology and mount that as volume to the container.</p>
+<h3>Step 2.1 - Mount Plex configuration folder path</h3>
+<p>Click on "Add Folder" button and select the folder and select the shared folder you have previously created. On the mount path enter "/config".</p>
+<p><img alt="Docker folder screenshot" src="/assets/blog/plex-installation-synology-docker/DockerFolder.png" /></p>
+<h3>Step 2.2 - Mounting media folders</h3>
+<p>Now click again the "Add Folder" button and add your media folder. Since Plex can also delete and update your media files, I’ve chosen to allow read/writes on the media folders.</p>
+<p><img alt="Docker folder screenshot" src="/assets/blog/plex-installation-synology-docker/DockerDirectories.png" /></p>
+<h3>Step 3 - Mapping ports</h3>
+<p>Map the ports as you want, especially if you have other containers running on the same port.</p>
+<p><img alt="Docker ports screenshot" src="/assets/blog/plex-installation-synology-docker/DockerPorts.png" /></p>
+<h3>Step 4 - Specifying additonal environment settings</h3>
+<p>In the Environment tab, I’ve chosen to set TimeZone, Version, PUID and PGID.</p>
+<p>The Version setting will allow auto updates to the latest Plex version. According to the official documentation the following version settings are supported</p>
+<ul>
+<li>docker: Let Docker handle the Plex Version, we keep our Dockerhub Endpoint up to date with the latest public builds. This is the same as leaving this setting out of your create command.</li>
+<li>latest: will update plex to the latest version available that you are entitled to.</li>
+<li>public: will update plexpass users to the latest public version, useful for plexpass users that don't want to be on the bleeding edge but still want the latest public updates.</li>
+<li><specific-version>: will select a specific version (eg 0.9.12.4.1192-9a47d21) of plex to install, note you cannot use this to access plexpass versions if you do not have plexpass.</li>
+</ul>
+<p>The PUID and PGID environment variables are used in order for the applications running inside the containers to run under the correct user scope. To find yours connect to your synology using ssh and use id user as below.</p>
+<pre><code class="language-shell">$ id username
+  uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
+</code></pre>
+<p><img alt="Docker environmnet settings screenshot" src="/assets/blog/plex-installation-synology-docker/DockerEnvironmentSettings.png" /></p>
+<h2>Access Plex</h2>
+<p>If everything is done correctly and the container has started succesfully you should be able to access it through http://YOUR_SYNOLOGY_IP:324O0 unless you have specify other ports for the webui in Step 3.</p>
+  </div>
+
+  <nav class="article-nav" aria-label="Other posts">
+    <a class="prev" href="/blog/plex/"><span>Previous</span>Plex</a>
+  </nav>
+</article>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer-meta">&copy; 2011-<span id="year">2026</span> Iraklis Kyriakidis</p>
+  </div>
+</footer>
+
+<script>
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

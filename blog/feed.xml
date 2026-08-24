@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Iraklis Kyriakidis</title>
+    <link>https://irakliskyriakidis.eu/blog/</link>
+    <description>Notes on backend systems, infrastructure and whatever else holds my attention.</description>
+    <language>en</language>
+    <atom:link href="https://irakliskyriakidis.eu/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Plex installation on synology using docker</title>
+      <link>https://irakliskyriakidis.eu/blog/plex-installation-synology-docker/</link>
+      <guid isPermaLink="true">https://irakliskyriakidis.eu/blog/plex-installation-synology-docker/</guid>
+      <pubDate>Wed, 13 Feb 2019 09:00:00 +0000</pubDate>
+      <description>Installing Plex on a Synology NAS with Docker, step by step: registry pull, volumes, ports and environment settings.</description>
+    </item>
+    <item>
+      <title>Plex</title>
+      <link>https://irakliskyriakidis.eu/blog/plex/</link>
+      <guid isPermaLink="true">https://irakliskyriakidis.eu/blog/plex/</guid>
+      <pubDate>Tue, 12 Feb 2019 09:00:00 +0000</pubDate>
+      <description>Using Plex to organise and watch a media library that lives on hardware you own.</description>
+    </item>
+    <item>
+      <title>Synology</title>
+      <link>https://irakliskyriakidis.eu/blog/synology/</link>
+      <guid isPermaLink="true">https://irakliskyriakidis.eu/blog/synology/</guid>
+      <pubDate>Mon, 11 Feb 2019 09:00:00 +0000</pubDate>
+      <description>Why a Synology NAS ended up at the centre of my backup strategy, and what I run on it.</description>
+    </item>
+    <item>
+      <title>Jekyll as a docker container</title>
+      <link>https://irakliskyriakidis.eu/blog/jekyll-in-docker/</link>
+      <guid isPermaLink="true">https://irakliskyriakidis.eu/blog/jekyll-in-docker/</guid>
+      <pubDate>Tue, 29 Jan 2019 09:00:00 +0000</pubDate>
+      <description>Running Jekyll from a Docker container, so you never have to install Ruby on your laptop.</description>
+    </item>
+    <item>
+      <title>Simple rest mock server as a docker container</title>
+      <link>https://irakliskyriakidis.eu/blog/simple-rest-mock-server-docker/</link>
+      <guid isPermaLink="true">https://irakliskyriakidis.eu/blog/simple-rest-mock-server-docker/</guid>
+      <pubDate>Tue, 29 Jan 2019 09:00:00 +0000</pubDate>
+      <description>Standing up a throwaway REST mock server with JSON Server and Docker, for testing against external dependencies.</description>
+    </item>
+  </channel>
+</rss>

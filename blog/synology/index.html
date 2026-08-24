@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Synology | Iraklis Kyriakidis</title>
+  <meta name="description" content="Why a Synology NAS ended up at the centre of my backup strategy, and what I run on it.">
+  <link rel="canonical" href="https://irakliskyriakidis.eu/blog/synology/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Synology">
+  <meta property="og:description" content="Why a Synology NAS ended up at the centre of my backup strategy, and what I run on it.">
+  <meta property="og:url" content="https://irakliskyriakidis.eu/blog/synology/">
+  <meta property="og:image" content="https://irakliskyriakidis.eu/img/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/img/favicon-180.png">
+
+  <link rel="alternate" type="application/rss+xml" title="Iraklis Kyriakidis" href="/blog/feed.xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Synology",
+    "description": "Why a Synology NAS ended up at the centre of my backup strategy, and what I run on it.",
+    "datePublished": "2019-02-11",
+    "author": { "@type": "Person", "name": "Iraklis Kyriakidis", "url": "https://irakliskyriakidis.eu/" },
+    "mainEntityOfPage": "https://irakliskyriakidis.eu/blog/synology/",
+    "image": "https://irakliskyriakidis.eu/img/og-card.png"
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW6CQ3XWPH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KW6CQ3XWPH');
+  </script>
+</head>
+<body class="blog-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav is-stuck" id="site-nav">
+  <div class="wrap nav-inner">
+    <nav aria-label="Main">
+      <a href="/#work">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/cv/">CV</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="wrap narrow article">
+  <header class="article-head">
+    <p class="eyebrow"><a href="/blog/">Blog</a></p>
+    <h1>Synology</h1>
+    <p class="article-meta"><time datetime="2019-02-11">11 February 2019</time></p>
+    <ul class="tags" aria-label="Tags"><li>docker</li><li>gmvault</li><li>plex</li><li>portainer</li><li>synology</li></ul>
+  </header>
+
+  <div class="prose">
+<p>I love my Synology NAS for so many different reasons. I also love my photos, documents, emails etc as I see them as part of my own history and my heritage. With so many different devices at home, Macbooks, Winbooks, mobile phones and online services its important to have a good strategy for backups.</p>
+<p>I have a Synology DS916+ (the equivalent is this). It's a 4 bay intel-based NAS. I have put three 4TB western digital disks in it. In the few years since I've had the Synology I've never has a drive fail and i run regularly consistency checks to verify that everything is ok (Synology is emailing with the results).</p>
+<p>I run Docker on this Synology, and gradually I have migrating all the services and applications to different containers. Currently i only run Plex for all my family photos, family videos, and DVD backups, Jenkins for my builds and <a href="https://portainer.io">Portainer</a> to manage the running containers. </p>
+<p>I utilize my Synology for my time machine backups and I recently start thinking about using <a href="http://gmvault.org">Gmvault</a> for my email backups. I heavily using gmail as my main email (sorry Microsoft) as I was an early adopter and I have a lot of emails that I want to keep. As I was walking to the office one morning, I accidentally manage to delete all my emails. It took me a while to understand what has happened, however I was able to recover everything (apparently I am not the only one doing this, so gmail has a <a href="https://support.google.com/accounts/answer/6236295?hl=en">process</a> for restoring everything</p>
+<p>Since I like containerization of applications, and I also do not like to mess around my NAS operating system, I decided to run gmvault in a docker containeras well.</p>
+  </div>
+
+  <nav class="article-nav" aria-label="Other posts">
+    <a class="prev" href="/blog/jekyll-in-docker/"><span>Previous</span>Jekyll as a docker container</a>
+    <a class="next" href="/blog/plex/"><span>Next</span>Plex</a>
+  </nav>
+</article>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer-meta">&copy; 2011-<span id="year">2026</span> Iraklis Kyriakidis</p>
+  </div>
+</footer>
+
+<script>
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

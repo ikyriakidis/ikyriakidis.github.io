@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plex | Iraklis Kyriakidis</title>
+  <meta name="description" content="Using Plex to organise and watch a media library that lives on hardware you own.">
+  <link rel="canonical" href="https://irakliskyriakidis.eu/blog/plex/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Plex">
+  <meta property="og:description" content="Using Plex to organise and watch a media library that lives on hardware you own.">
+  <meta property="og:url" content="https://irakliskyriakidis.eu/blog/plex/">
+  <meta property="og:image" content="https://irakliskyriakidis.eu/img/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/img/favicon-180.png">
+
+  <link rel="alternate" type="application/rss+xml" title="Iraklis Kyriakidis" href="/blog/feed.xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Plex",
+    "description": "Using Plex to organise and watch a media library that lives on hardware you own.",
+    "datePublished": "2019-02-12",
+    "author": { "@type": "Person", "name": "Iraklis Kyriakidis", "url": "https://irakliskyriakidis.eu/" },
+    "mainEntityOfPage": "https://irakliskyriakidis.eu/blog/plex/",
+    "image": "https://irakliskyriakidis.eu/img/og-card.png"
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW6CQ3XWPH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KW6CQ3XWPH');
+  </script>
+</head>
+<body class="blog-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav is-stuck" id="site-nav">
+  <div class="wrap nav-inner">
+    <nav aria-label="Main">
+      <a href="/#work">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/cv/">CV</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article class="wrap narrow article">
+  <header class="article-head">
+    <p class="eyebrow"><a href="/blog/">Blog</a></p>
+    <h1>Plex</h1>
+    <p class="article-meta"><time datetime="2019-02-12">12 February 2019</time></p>
+    <ul class="tags" aria-label="Tags"><li>plex</li><li>synology</li></ul>
+  </header>
+
+  <div class="prose">
+<h2>What's Plex and Why?</h2>
+<p>I am a big fan of Plex. Plex is a media server you run on a computer (or compatible NAS device, like Synology, Netgear, Drobo) combined with both a great HTML5 web app and some awesome native clients and lets you stream your media anywhere, on any device. </p>
+<p>I've blogged about my <a href="/blog/synology/">Synology 916+</a> before and how I am backing up my gmail account and run my code builds. One major thing that I am using my Synology is for storing my media files, and Plex is what I am using for streaming them to my devices, TV, laptops, phones etc.</p>
+<p>Plex is not just a server, its a whole ecosystem that is extremely well polished and easy to setup, and If you spend around 110€ you can get their <a href="https://www.plex.tv/plex-pass/">PlexPass</a> feature that unlocks some more goodies. I'm totally happy with the free plan, so I have skipped PlexPass.</p>
+<p>One of the killer features of Plex is that it will transcode your videos depending on your device and network. That means that Plex will use the power of your server at home to dynamically squish videos so that they still play smoothly on your smartphone over 4G or your tablet over hotel Wi-Fi.</p>
+<p>Plex will also get art, descriptions, subtitles, and generate thumbnails for your media, and it may sound that its not important, however trust me, it feels good when you browser though your content.</p>
+<p>You can install Plex server on all the major operating systems and it also offer support for major NAS devices like Synology (For Synology systems, I strongly recommend a faster Intel machine, not the little ARM ones.) and Qnap. The best thing is that you can also run Plex as docker container, and this is my preferable way.</p>
+<h2>Plex Clients</h2>
+<p>There are Plex clients for iOS, Android, Nvidia Shield, Playstation, Xbox, Roku, however if you do not want to install any client, you can always use the web ui, It's magical.
+Here's an example screenshot of the Plex web ui</p>
+<p>One major feature that PlexPass offers is PlexSync that squishes content on the server then transfers the custom-transcoded result to your device for offline viewing. Super useful for airplanes and offline viewing.</p>
+<h2>Accessing Media Remotely with Plex</h2>
+<p>Plex really shines when you can access all your media from a hotel on your tablet. Forward a port, publish your server with your Plex username and you're set.
+Once you've logged into the MyPlex service with your username, it will keep track of your servers and devices and let you access them when you're not on your home network (not on the same subnet.)</p>
+<h2>Data analytics</h2>
+<p>As data tends to be the gold of our era, PLex is also sending playback data to back to Plex, however you can disable the feature online under privacy <a href="https://www.plex.tv/about/privacy-legal/privacy-preferences/#opd">preferences</a></p>
+<h2>Alternatives</h2>
+<ul>
+<li>
+<p><a href="https://emby.media">Emby</a> is a promisisng alternative solution, that offers the same client-server functionality and some more features like Live TV and cloud backups, however installing the client app on my Sasmung TV was a challenge, since the official emby app is only offered in the US Samsung store and my TV was setup for the Swedish one. Changing stores required some googling and access to hidden menues etc. Not as smooth as Plex.</p>
+</li>
+<li>
+<p><a href="https://kodi.tv/">Kodi</a> formerly known as XBMC is an award-winning free and open source cross-platform software media player and entertainment hub for digital media for HTPCs (Home theater PCs). Although Kodi may seem to offer the same functionality as Plex, Kodi is just a media player and cannot transcode or stream online your content.</p>
+</li>
+</ul>
+<h2>Conclusion</h2>
+<p>I really believe that <a href="https://www.plex.tv/">Plex</a> is a really nice piece of software and I suggest that Plex could become a part of your media server solution.</p>
+  </div>
+
+  <nav class="article-nav" aria-label="Other posts">
+    <a class="prev" href="/blog/synology/"><span>Previous</span>Synology</a>
+    <a class="next" href="/blog/plex-installation-synology-docker/"><span>Next</span>Plex installation on synology using docker</a>
+  </nav>
+</article>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer-meta">&copy; 2011-<span id="year">2026</span> Iraklis Kyriakidis</p>
+  </div>
+</footer>
+
+<script>
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

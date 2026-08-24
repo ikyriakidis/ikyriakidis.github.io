@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Iraklis Kyriakidis</title>
+  <meta name="description" content="Notes on backend systems, infrastructure and whatever else holds my attention.">
+  <link rel="canonical" href="https://irakliskyriakidis.eu/blog/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog">
+  <meta property="og:description" content="Notes on backend systems, infrastructure and whatever else holds my attention.">
+  <meta property="og:url" content="https://irakliskyriakidis.eu/blog/">
+  <meta property="og:image" content="https://irakliskyriakidis.eu/img/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/img/favicon-180.png">
+
+  <link rel="alternate" type="application/rss+xml" title="Iraklis Kyriakidis" href="/blog/feed.xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW6CQ3XWPH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KW6CQ3XWPH');
+  </script>
+</head>
+<body class="blog-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav is-stuck" id="site-nav">
+  <div class="wrap nav-inner">
+    <nav aria-label="Main">
+      <a href="/#work">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/cv/">CV</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap narrow article">
+  <header class="article-head">
+    <h1>Blog</h1>
+    <p class="article-meta">Notes on backend systems, infrastructure and whatever else holds my attention.</p>
+  </header>
+
+    <ul class="archive">
+      <li>
+        <time datetime="2019-02-13">13 February 2019</time>
+        <a href="/blog/plex-installation-synology-docker/">Plex installation on synology using docker</a>
+        <p>Installing Plex on a Synology NAS with Docker, step by step: registry pull, volumes, ports and environment settings.</p>
+      </li>
+      <li>
+        <time datetime="2019-02-12">12 February 2019</time>
+        <a href="/blog/plex/">Plex</a>
+        <p>Using Plex to organise and watch a media library that lives on hardware you own.</p>
+      </li>
+      <li>
+        <time datetime="2019-02-11">11 February 2019</time>
+        <a href="/blog/synology/">Synology</a>
+        <p>Why a Synology NAS ended up at the centre of my backup strategy, and what I run on it.</p>
+      </li>
+      <li>
+        <time datetime="2019-01-29">29 January 2019</time>
+        <a href="/blog/jekyll-in-docker/">Jekyll as a docker container</a>
+        <p>Running Jekyll from a Docker container, so you never have to install Ruby on your laptop.</p>
+      </li>
+      <li>
+        <time datetime="2019-01-29">29 January 2019</time>
+        <a href="/blog/simple-rest-mock-server-docker/">Simple rest mock server as a docker container</a>
+        <p>Standing up a throwaway REST mock server with JSON Server and Docker, for testing against external dependencies.</p>
+      </li>
+    </ul>
+
+  <p><a class="more-link" href="/blog/feed.xml">RSS feed</a></p>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer-meta">&copy; 2011-<span id="year">2026</span> Iraklis Kyriakidis</p>
+  </div>
+</footer>
+
+<script>
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://irakliskyriakidis.eu/</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://irakliskyriakidis.eu/cv/</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://irakliskyriakidis.eu/</loc><lastmod>2026-08-24</lastmod><priority>1.0</priority></url>
+  <url><loc>https://irakliskyriakidis.eu/cv/</loc><lastmod>2026-08-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://irakliskyriakidis.eu/blog/</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
+  <url><loc>https://irakliskyriakidis.eu/blog/plex-installation-synology-docker/</loc><lastmod>2019-02-13</lastmod><priority>0.6</priority></url>
+  <url><loc>https://irakliskyriakidis.eu/blog/plex/</loc><lastmod>2019-02-12</lastmod><priority>0.6</priority></url>
+  <url><loc>https://irakliskyriakidis.eu/blog/synology/</loc><lastmod>2019-02-11</lastmod><priority>0.6</priority></url>
+  <url><loc>https://irakliskyriakidis.eu/blog/jekyll-in-docker/</loc><lastmod>2019-01-29</lastmod><priority>0.6</priority></url>
+  <url><loc>https://irakliskyriakidis.eu/blog/simple-rest-mock-server-docker/</loc><lastmod>2019-01-29</lastmod><priority>0.6</priority></url>
 </urlset>
